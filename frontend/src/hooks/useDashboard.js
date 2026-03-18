@@ -62,7 +62,7 @@ export function useDashboardData(webSocket = null) {
 
     // Subscribe to WebSocket real-time updates
     useEffect(() => {
-        if (!webSocket) return;
+        if (!webSocket?.on) return;
 
         const unsubs = [];
 
@@ -131,7 +131,7 @@ export function useDashboardData(webSocket = null) {
         }));
 
         return () => unsubs.forEach(unsub => unsub());
-    }, [webSocket]);
+    }, [webSocket?.on]);
 
     // Initial HTTP fetch + fallback polling only when WebSocket is NOT connected
     useEffect(() => {

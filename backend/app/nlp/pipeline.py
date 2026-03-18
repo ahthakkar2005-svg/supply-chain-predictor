@@ -34,68 +34,116 @@ class NLPResult:
 NEGATIVE_KEYWORDS = {
     "disruption", "delay", "shortage", "strike", "crisis", "halt", "suspend",
     "bankruptcy", "closure", "shutdown", "tariff", "sanction", "embargo",
-    "recall", "failure", "bottleneck", "congestion", "constraint", "shortage",
+    "recall", "failure", "bottleneck", "congestion", "constraint",
     "volatility", "surge", "spike", "crash", "decline", "drop", "fall",
     "warning", "alert", "risk", "threat", "concern", "worry", "fear",
     "damage", "destruction", "disaster", "earthquake", "flood", "storm",
     "typhoon", "hurricane", "fire", "explosion", "accident", "incident",
-    "ransomware", "cyberattack", "breach", "hack", "outage", "offline"
+    "ransomware", "cyberattack", "breach", "hack", "outage", "offline",
+    # Energy & commodity
+    "opec", "crude", "petroleum", "refinery", "pipeline",
+    # Geopolitical & military
+    "war", "conflict", "invasion", "blockade", "retaliation", "missile",
+    "military", "escalation", "airspace", "occupation", "drone", "bombing",
+    "assassination", "coup", "insurgency", "terrorism",
+    # Supply chain specific
+    "backlog", "rationing", "scarcity", "deficit", "stockout", "overdue",
+    "inflationary", "devaluation", "default", "insolvency",
 }
 
 POSITIVE_KEYWORDS = {
     "recovery", "improvement", "growth", "expansion", "investment", "innovation",
     "agreement", "partnership", "collaboration", "milestone", "success",
     "efficiency", "optimization", "resilience", "diversification", "stable",
-    "resolved", "restored", "reopened", "resumed", "normalized"
+    "resolved", "restored", "reopened", "resumed", "normalized",
+    # Geopolitical positive
+    "ceasefire", "peace", "treaty", "alliance", "diplomacy", "negotiation",
+    # Economic positive
+    "subsidy", "surplus", "rebound", "upturn", "stimulus", "deregulation",
 }
 
 SUPPLY_CHAIN_ENTITIES = {
     "companies": [
         "Apple", "Samsung", "Intel", "TSMC", "Foxconn", "Amazon", "Walmart",
-        "Toyota", "Volkswagen", "Tesla", "Maersk", "FedEx", "UPS", "DHL"
+        "Toyota", "Volkswagen", "Tesla", "Maersk", "FedEx", "UPS", "DHL",
+        # Indian companies
+        "Tata", "Reliance", "Adani", "Mahindra", "Wipro", "Infosys",
+        "Larsen & Toubro", "Bharat Electronics",
+        # Additional global
+        "Nvidia", "Qualcomm", "BYD", "Huawei", "Sony", "LG", "BMW",
+        "Shell", "ExxonMobil", "Chevron", "BP", "Aramco",
     ],
     "locations": [
         "China", "Taiwan", "Japan", "South Korea", "Vietnam", "India", "Germany",
-        "United States", "Mexico", "Shanghai", "Shenzhen", "Singapore", "Rotterdam"
+        "United States", "Mexico", "Shanghai", "Shenzhen", "Singapore", "Rotterdam",
+        # Middle East & strategic chokepoints
+        "Iran", "Iraq", "Saudi Arabia", "Strait of Hormuz", "Persian Gulf",
+        "Suez Canal", "Red Sea", "Panama Canal", "Yemen", "Turkey",
+        "Bab el-Mandeb", "Malacca Strait",
+        # Indian cities
+        "Mumbai", "Chennai", "Delhi", "Gujarat", "Bangalore", "Hyderabad",
+        "Kolkata", "Pune", "Mundra", "Visakhapatnam",
+        # More global
+        "Indonesia", "Thailand", "Malaysia", "Philippines", "Bangladesh",
+        "Brazil", "Nigeria", "South Africa", "Egypt",
     ],
     "products": [
         "semiconductor", "chip", "battery", "EV", "electronics", "automotive",
-        "pharmaceutical", "chemical", "steel", "aluminum", "rare earth"
+        "pharmaceutical", "chemical", "steel", "aluminum", "rare earth",
+        # Energy & commodities
+        "crude oil", "natural gas", "petroleum", "LNG", "diesel", "gasoline",
+        "lithium", "cobalt", "copper", "nickel", "uranium",
+        # Agricultural & other
+        "fertilizer", "wheat", "cotton", "rice", "palm oil",
+        "medical devices", "PPE", "vaccine", "textiles",
     ],
     "infrastructure": [
         "port", "factory", "warehouse", "logistics hub", "manufacturing plant",
-        "distribution center", "shipping lane", "supply route"
+        "distribution center", "shipping lane", "supply route",
+        # Additional
+        "oil refinery", "pipeline", "terminal", "dry dock", "free trade zone",
+        "special economic zone", "bonded warehouse", "container yard",
     ]
 }
 
 DISRUPTION_PATTERNS = {
     "natural_disaster": [
         r"earthquake|typhoon|hurricane|flood|storm|wildfire|tsunami|drought",
-        r"weather|climate|natural disaster|force majeure"
+        r"weather|climate|natural disaster|force majeure|cyclone|tornado|landslide"
     ],
     "geopolitical": [
         r"tariff|sanction|embargo|trade war|political|government|regulation",
         r"border|customs|policy|diplomatic|tension"
     ],
+    "conflict": [
+        r"war|conflict|invasion|military|attack|missile|bombing|blockade",
+        r"armed|troops|airstrike|drone strike|occupation|insurgency|terrorism",
+        r"retaliation|escalation|ceasefire|assassination|coup"
+    ],
+    "energy": [
+        r"oil|crude|opec|pipeline|energy crisis|fuel shortage|refinery",
+        r"petroleum|lng|natural gas|gasoline|diesel|energy|power outage"
+    ],
     "economic": [
         r"bankruptcy|inflation|recession|currency|price surge|cost increase",
-        r"financial|economic|market crash|credit"
+        r"financial|economic|market crash|credit|devaluation|default|debt"
     ],
     "transportation": [
         r"port congestion|shipping delay|container|freight|logistics",
-        r"transportation|trucking|rail|air freight|vessel"
+        r"transportation|trucking|rail|air freight|vessel|canal blocked",
+        r"strait|chokepoint|shipping lane|reroute"
     ],
     "labor": [
         r"strike|walkout|labor dispute|union|workforce|worker",
-        r"shortage of workers|staffing|employment"
+        r"shortage of workers|staffing|employment|mass layoff"
     ],
     "cyber": [
         r"ransomware|cyberattack|hack|breach|security incident",
-        r"system outage|IT failure|data breach"
+        r"system outage|IT failure|data breach|phishing|malware"
     ],
     "supplier": [
         r"supplier failure|vendor bankruptcy|supplier risk|sourcing",
-        r"single source|supplier concentration"
+        r"single source|supplier concentration|procurement risk"
     ]
 }
 
@@ -218,6 +266,17 @@ class NLPPipeline:
             ("force majeure", "Force majeure conditions"),
             ("single source", "Single source dependency risk"),
             ("quality issue", "Quality concerns identified"),
+            # Energy & geopolitical
+            ("oil price", "Oil price volatility detected"),
+            ("trade route", "Trade route disruption risk"),
+            ("military", "Military conflict risk identified"),
+            ("strait of hormuz", "Strait of Hormuz chokepoint risk"),
+            ("suez canal", "Suez Canal transit risk"),
+            ("red sea", "Red Sea shipping route risk"),
+            ("energy crisis", "Energy supply crisis risk"),
+            ("shipping route", "Shipping route disruption risk"),
+            ("raw material", "Raw material supply risk"),
+            ("export ban", "Export restriction risk identified"),
         ]
         
         for phrase, indicator in risk_phrases:

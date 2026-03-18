@@ -1,0 +1,2347 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Archi Thakkar\\Downloads\\supply-chain-predictor\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [20120] using StatReload
+INFO:     Started server process [18012]
+INFO:     Waiting for application startup.
+2026-03-18 01:15:39,250 - main - INFO - \U0001f680 Starting Supply Chain Disruption Predictor API...
+2026-03-18 01:15:39,250 - main - INFO - \U0001f4ca App: Supply Chain Disruption Predictor v1.0.0
+2026-03-18 01:15:39,269 - app.core.database - INFO - \U0001f4e6 MongoDB connected: supply_chain_predictor
+2026-03-18 01:15:39,427 - app.core.database - INFO - \u26a1 Async Motor client connected
+2026-03-18 01:15:39,427 - app.services.realtime_engine - INFO - \U0001f680 Real-time engine started
+2026-03-18 01:15:39,427 - main - INFO - \u26a1 Real-time engine started
+INFO:     Application startup complete.
+2026-03-18 01:15:43,177 - httpx - INFO - HTTP Request: GET https://newsapi.org/v2/everything?q=manufacturing+shutdown&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10 "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:43,179 - app.services.news_service - WARNING - NewsAPI fetch failed: Client error '401 Unauthorized' for url 'https://newsapi.org/v2/everything?q=manufacturing+shutdown&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401, using mock data
+2026-03-18 01:15:50,100 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,101 - app.services.weather_service - WARNING - Weather fetch failed for Shanghai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:50,304 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,305 - app.services.weather_service - WARNING - Weather fetch failed for Singapore: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:50,510 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,512 - app.services.weather_service - WARNING - Weather fetch failed for Rotterdam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:50,615 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,616 - app.services.weather_service - WARNING - Weather fetch failed for Los Angeles: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:50,817 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,818 - app.services.weather_service - WARNING - Weather fetch failed for Hamburg: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:50,974 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:50,975 - app.services.weather_service - WARNING - Weather fetch failed for Shenzhen: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,080 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,082 - app.services.weather_service - WARNING - Weather fetch failed for Dubai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,227 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,228 - app.services.weather_service - WARNING - Weather fetch failed for New York: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,330 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,331 - app.services.weather_service - WARNING - Weather fetch failed for Mumbai (JNPT): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,534 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,535 - app.services.weather_service - WARNING - Weather fetch failed for Chennai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,640 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,641 - app.services.weather_service - WARNING - Weather fetch failed for Delhi NCR: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,750 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,751 - app.services.weather_service - WARNING - Weather fetch failed for Kolkata: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:51,944 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:51,945 - app.services.weather_service - WARNING - Weather fetch failed for Mundra (Gujarat): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:52,055 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:52,056 - app.services.weather_service - WARNING - Weather fetch failed for Visakhapatnam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:52,252 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:52,253 - app.services.weather_service - WARNING - Weather fetch failed for Bandar Abbas: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:52,456 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:52,457 - app.services.weather_service - WARNING - Weather fetch failed for Jeddah: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:52,560 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:52,561 - app.services.weather_service - WARNING - Weather fetch failed for Busan: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:15:52,670 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:15:52,671 - app.services.weather_service - WARNING - Weather fetch failed for Kaohsiung: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:44,379 - httpx - INFO - HTTP Request: GET https://newsapi.org/v2/everything?q=trade+tariff&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10 "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:44,380 - app.services.news_service - WARNING - NewsAPI fetch failed: Client error '401 Unauthorized' for url 'https://newsapi.org/v2/everything?q=trade+tariff&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401, using mock data
+2026-03-18 01:16:53,507 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:53,508 - app.services.weather_service - WARNING - Weather fetch failed for Shanghai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:53,605 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:53,605 - app.services.weather_service - WARNING - Weather fetch failed for Singapore: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:53,709 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:53,710 - app.services.weather_service - WARNING - Weather fetch failed for Rotterdam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:53,813 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:53,814 - app.services.weather_service - WARNING - Weather fetch failed for Los Angeles: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:53,922 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:53,922 - app.services.weather_service - WARNING - Weather fetch failed for Hamburg: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,022 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,022 - app.services.weather_service - WARNING - Weather fetch failed for Shenzhen: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,127 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,128 - app.services.weather_service - WARNING - Weather fetch failed for Dubai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,227 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,227 - app.services.weather_service - WARNING - Weather fetch failed for New York: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,327 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,327 - app.services.weather_service - WARNING - Weather fetch failed for Mumbai (JNPT): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,422 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,422 - app.services.weather_service - WARNING - Weather fetch failed for Chennai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,539 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,539 - app.services.weather_service - WARNING - Weather fetch failed for Delhi NCR: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,645 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,645 - app.services.weather_service - WARNING - Weather fetch failed for Kolkata: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,749 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,750 - app.services.weather_service - WARNING - Weather fetch failed for Mundra (Gujarat): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,855 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,856 - app.services.weather_service - WARNING - Weather fetch failed for Visakhapatnam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:54,968 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:54,969 - app.services.weather_service - WARNING - Weather fetch failed for Bandar Abbas: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:55,082 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:55,083 - app.services.weather_service - WARNING - Weather fetch failed for Jeddah: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:55,192 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:55,193 - app.services.weather_service - WARNING - Weather fetch failed for Busan: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:16:55,297 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:16:55,297 - app.services.weather_service - WARNING - Weather fetch failed for Kaohsiung: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:45,271 - httpx - INFO - HTTP Request: GET https://newsapi.org/v2/everything?q=supply+chain+disruption&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10 "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:45,272 - app.services.news_service - WARNING - NewsAPI fetch failed: Client error '401 Unauthorized' for url 'https://newsapi.org/v2/everything?q=supply+chain+disruption&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401, using mock data
+2026-03-18 01:17:55,926 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:55,928 - app.services.weather_service - WARNING - Weather fetch failed for Shanghai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,026 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,026 - app.services.weather_service - WARNING - Weather fetch failed for Singapore: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,120 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,121 - app.services.weather_service - WARNING - Weather fetch failed for Rotterdam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,221 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,222 - app.services.weather_service - WARNING - Weather fetch failed for Los Angeles: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,321 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,322 - app.services.weather_service - WARNING - Weather fetch failed for Hamburg: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,421 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,422 - app.services.weather_service - WARNING - Weather fetch failed for Shenzhen: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,511 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,512 - app.services.weather_service - WARNING - Weather fetch failed for Dubai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,621 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,621 - app.services.weather_service - WARNING - Weather fetch failed for New York: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,726 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,727 - app.services.weather_service - WARNING - Weather fetch failed for Mumbai (JNPT): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,826 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,826 - app.services.weather_service - WARNING - Weather fetch failed for Chennai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:56,926 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:56,927 - app.services.weather_service - WARNING - Weather fetch failed for Delhi NCR: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,026 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,027 - app.services.weather_service - WARNING - Weather fetch failed for Kolkata: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,126 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,126 - app.services.weather_service - WARNING - Weather fetch failed for Mundra (Gujarat): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,226 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,227 - app.services.weather_service - WARNING - Weather fetch failed for Visakhapatnam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,326 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,327 - app.services.weather_service - WARNING - Weather fetch failed for Bandar Abbas: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,421 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,422 - app.services.weather_service - WARNING - Weather fetch failed for Jeddah: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,521 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,522 - app.services.weather_service - WARNING - Weather fetch failed for Busan: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 01:17:57,621 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 01:17:57,621 - app.services.weather_service - WARNING - Weather fetch failed for Kaohsiung: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+WARNING:  StatReload detected changes in 'app\ml\predictor.py'. Reloading...
+INFO:     Started server process [1168]
+INFO:     Waiting for application startup.
+2026-03-18 02:34:26,486 - main - INFO - \U0001f680 Starting Supply Chain Disruption Predictor API...
+2026-03-18 02:34:26,487 - main - INFO - \U0001f4ca App: Supply Chain Disruption Predictor v1.0.0
+2026-03-18 02:34:26,530 - app.core.database - INFO - \U0001f4e6 MongoDB connected: supply_chain_predictor
+2026-03-18 02:34:26,603 - app.core.database - INFO - \u26a1 Async Motor client connected
+2026-03-18 02:34:26,603 - app.services.realtime_engine - INFO - \U0001f680 Real-time engine started
+2026-03-18 02:34:26,603 - main - INFO - \u26a1 Real-time engine started
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53008 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:26,682 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     127.0.0.1:62016 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:26,682 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 2
+INFO:     connection open
+INFO:     connection open
+ INFO:     127.0.0.1:53009 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53010 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53012 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53013 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53011 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:53014 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:64669 - "GET /api/predictions/forecast?days=14 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64675 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64677 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64676 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+2026-03-18 02:34:26,776 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 1
+2026-03-18 02:34:26,776 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2026-03-18 02:34:26,777 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:26,778 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:53066 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:64671 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57266 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57270 - "GET /api/predictions/forecast?days=14 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57269 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57272 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60237 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52693 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64941 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64942 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:64947 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64948 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64111 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64946 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65059 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65060 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61868 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:53765 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61870 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50973 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50972 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50976 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50974 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49301 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53059 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:59297 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59301 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59302 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59304 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57190 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59298 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51678 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:64896 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63586 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:28,226 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:28,231 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:28,231 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:60633 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60634 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60635 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60636 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:60639 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60638 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61832 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55705 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55706 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55707 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55708 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:55712 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49909 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55711 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57967 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:30,225 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:30,230 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:30,230 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:50929 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50931 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50932 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50933 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:50936 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50935 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61628 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62160 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62161 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62162 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62163 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9af675201dbe203e34fb4'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Earthquake mag..., 'source': 'Bloomberg'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:62166 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62165 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50512 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+2026-03-18 02:34:30,515 - httpx - INFO - HTTP Request: GET https://newsapi.org/v2/everything?q=manufacturing+shutdown&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10 "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:30,516 - app.services.news_service - WARNING - NewsAPI fetch failed: Client error '401 Unauthorized' for url 'https://newsapi.org/v2/everything?q=manufacturing+shutdown&apiKey=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&language=en&sortBy=publishedAt&pageSize=20&from=2026-03-10'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401, using mock data
+INFO:     127.0.0.1:54164 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:32,221 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:32,228 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:32,228 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:51691 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51692 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51695 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51699 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51696 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:53586 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51698 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52838 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52839 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52867 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52869 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:52868 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55959 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52866 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61083 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:34,215 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:34,220 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:34,220 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:50062 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50065 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50067 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:50066 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50071 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54165 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50070 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53580 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53581 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53582 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53583 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:53586 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53584 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51873 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49273 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:36,224 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:36,231 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:36,231 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:59574 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59575 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59576 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59577 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:59580 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59578 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54867 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60461 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60462 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60463 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:60467 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60465 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62090 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+2026-03-18 02:34:37,277 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,277 - app.services.weather_service - WARNING - Weather fetch failed for Shanghai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=31.23&lon=121.47&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:37,382 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,382 - app.services.weather_service - WARNING - Weather fetch failed for Singapore: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=1.35&lon=103.82&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:37,482 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,483 - app.services.weather_service - WARNING - Weather fetch failed for Rotterdam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=51.92&lon=4.48&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+WARNING:  StatReload detected changes in 'app\api\routes\predictions.py'. Reloading...
+2026-03-18 02:34:37,587 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,588 - app.services.weather_service - WARNING - Weather fetch failed for Los Angeles: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=33.74&lon=-118.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:37,682 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,682 - app.services.weather_service - WARNING - Weather fetch failed for Hamburg: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=53.55&lon=9.99&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:37,796 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,797 - app.services.weather_service - WARNING - Weather fetch failed for Shenzhen: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.54&lon=114.06&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+INFO:     127.0.0.1:54006 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:37,854 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:37,923 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:37,927 - app.services.weather_service - WARNING - Weather fetch failed for Dubai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=25.2&lon=55.27&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:37,936 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:37,938 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+2026-03-18 02:34:38,033 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,035 - app.services.weather_service - WARNING - Weather fetch failed for New York: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=40.71&lon=-74.01&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+ INFO:     127.0.0.1:55188 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55189 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55193 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55190 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55191 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2026-03-18 02:34:38,151 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,152 - app.services.weather_service - WARNING - Weather fetch failed for Mumbai (JNPT): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=18.95&lon=72.95&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+INFO:     127.0.0.1:60833 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55194 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61091 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51951 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:51953 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51952 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51956 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59171 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59173 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+2026-03-18 02:34:38,253 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,253 - app.services.weather_service - WARNING - Weather fetch failed for Chennai: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=13.08&lon=80.29&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,367 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,367 - app.services.weather_service - WARNING - Weather fetch failed for Delhi NCR: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=28.61&lon=77.23&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,477 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,478 - app.services.weather_service - WARNING - Weather fetch failed for Kolkata: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.57&lon=88.36&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,582 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,583 - app.services.weather_service - WARNING - Weather fetch failed for Mundra (Gujarat): Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.84&lon=69.72&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,676 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,677 - app.services.weather_service - WARNING - Weather fetch failed for Visakhapatnam: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.22&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,809 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,809 - app.services.weather_service - WARNING - Weather fetch failed for Bandar Abbas: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=27.19&lon=56.28&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:38,906 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:38,907 - app.services.weather_service - WARNING - Weather fetch failed for Jeddah: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=21.54&lon=39.17&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2026-03-18 02:34:39,117 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:39,117 - app.services.weather_service - WARNING - Weather fetch failed for Busan: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=35.1&lon=129.04&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+INFO:     127.0.0.1:62523 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:39,223 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:39,228 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:39,228 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:59613 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59616 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:59615 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59618 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59614 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59617 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+2026-03-18 02:34:39,326 - httpx - INFO - HTTP Request: GET https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric "HTTP/1.1 401 Unauthorized"
+2026-03-18 02:34:39,331 - app.services.weather_service - WARNING - Weather fetch failed for Kaohsiung: Client error '401 Unauthorized' for url 'https://api.openweathermap.org/data/2.5/weather?lat=22.62&lon=120.31&appid=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&units=metric'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+INFO:     127.0.0.1:61144 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56186 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56189 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56188 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56190 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:56192 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56191 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55018 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64399 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:41,223 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:41,230 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:41,230 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:50582 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50584 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50583 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50585 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:50588 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50587 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54414 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57152 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57155 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57156 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57157 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:57153 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63872 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52000 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:43,215 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:43,221 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:43,221 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:57412 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57415 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57416 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57418 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:57420 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57417 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55115 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51458 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51459 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51460 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51465 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51466 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:59023 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51464 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63706 - "WebSocket /ws" [accepted]
+2026-03-18 02:34:45,215 - app.services.connection_manager - INFO - WebSocket connected. Total connections: 1
+INFO:     connection open
+2026-03-18 02:34:45,221 - app.services.connection_manager - INFO - WebSocket disconnected. Total connections: 0
+2026-03-18 02:34:45,221 - app.api.routes.websocket - ERROR - WebSocket error: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     connection closed
+INFO:     127.0.0.1:59460 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59461 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59462 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59464 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:59467 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61219 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55383 - "GET /api/dashboard/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55384 - "GET /api/dashboard/regions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55392 - "GET /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55389 - "GET /api/dashboard/alerts?unread_only=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /api/dashboard/news?limit=20 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 410, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\cors.py", line 87, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Python313\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 424, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\fastapi\routing.py", line 312, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\api\routes\dashboard.py", line 149, in get_news
+    return [doc_to_news(d) for d in docs]
+            ~~~~~~~~~~~^^^
+  File "C:\Users\Archi Thakkar\Downloads\supply-chain-predictor\backend\app\models\db_models.py", line 28, in doc_to_news
+    return NewsArticle(**doc)
+  File "C:\Python313\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for NewsArticle
+id
+  Input should be a valid string [type=string_type, input_value=ObjectId('69b9c1de5201dbe203e34ff1'), input_type=ObjectId]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+url
+  Field required [type=missing, input_value={'title': 'Credit crunch ...-0.251, 'source': 'WSJ'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     127.0.0.1:58727 - "GET /api/dashboard/suppliers?limit=15 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55391 - "GET /api/dashboard/time-series?days=30 HTTP/1.1" 200 OK

@@ -22,7 +22,7 @@ def pydantic_to_doc(obj) -> dict:
 def doc_to_news(doc: dict):
     """Convert MongoDB document to NewsArticle"""
     from app.models import NewsArticle, DisruptionType
-    doc["id"] = doc.pop("_id", doc.get("id", ""))
+    doc["id"] = str(doc.pop("_id", doc.get("id", "")))
     if doc.get("disruption_type"):
         doc["disruption_type"] = DisruptionType(doc["disruption_type"])
     return NewsArticle(**doc)
@@ -31,7 +31,7 @@ def doc_to_news(doc: dict):
 def doc_to_prediction(doc: dict):
     """Convert MongoDB document to Prediction"""
     from app.models import Prediction, RiskLevel, DisruptionType
-    doc["id"] = doc.pop("_id", doc.get("id", ""))
+    doc["id"] = str(doc.pop("_id", doc.get("id", "")))
     doc["risk_level"] = RiskLevel(doc["risk_level"])
     doc["disruption_type"] = DisruptionType(doc["disruption_type"])
     return Prediction(**doc)
@@ -40,7 +40,7 @@ def doc_to_prediction(doc: dict):
 def doc_to_alert(doc: dict):
     """Convert MongoDB document to Alert"""
     from app.models import Alert, RiskLevel, DisruptionType
-    doc["id"] = doc.pop("_id", doc.get("id", ""))
+    doc["id"] = str(doc.pop("_id", doc.get("id", "")))
     doc["risk_level"] = RiskLevel(doc["risk_level"])
     doc["disruption_type"] = DisruptionType(doc["disruption_type"])
     return Alert(**doc)
@@ -49,7 +49,7 @@ def doc_to_alert(doc: dict):
 def doc_to_supplier(doc: dict):
     """Convert MongoDB document to Supplier"""
     from app.models import Supplier
-    doc["id"] = doc.pop("_id", doc.get("id", ""))
+    doc["id"] = str(doc.pop("_id", doc.get("id", "")))
     return Supplier(**doc)
 
 

@@ -28,25 +28,67 @@ SUPPLY_CHAIN_QUERIES = [
 
 # Keywords to disruption type mapping
 DISRUPTION_KEYWORDS = {
-    DisruptionType.NATURAL_DISASTER: ["typhoon", "hurricane", "earthquake", "flood", "wildfire", "storm", "drought", "tsunami"],
-    DisruptionType.GEOPOLITICAL: ["tariff", "sanction", "trade war", "embargo", "political", "border", "tension"],
-    DisruptionType.ECONOMIC: ["inflation", "recession", "bankruptcy", "currency", "price surge", "cost", "credit"],
-    DisruptionType.TRANSPORTATION: ["port", "shipping", "freight", "congestion", "logistics", "container", "rail"],
-    DisruptionType.LABOR_STRIKE: ["strike", "labor", "workers", "union", "wage", "protest"],
-    DisruptionType.CYBER_ATTACK: ["cyber", "ransomware", "hack", "breach", "security"],
-    DisruptionType.PANDEMIC: ["pandemic", "covid", "outbreak", "virus", "quarantine"],
-    DisruptionType.REGULATORY: ["regulation", "compliance", "ban", "policy", "law"],
-    DisruptionType.SUPPLIER_FAILURE: ["supplier", "bankruptcy", "default", "insolvency"],
+    DisruptionType.NATURAL_DISASTER: ["typhoon", "hurricane", "earthquake", "flood", "wildfire", "storm", "drought", "tsunami", "cyclone", "tornado", "landslide"],
+    DisruptionType.GEOPOLITICAL: [
+        "tariff", "sanction", "trade war", "embargo", "political", "border", "tension",
+        "war", "conflict", "invasion", "military", "missile", "blockade", "retaliation",
+        "escalation", "airstrike", "drone", "bombing", "troops", "occupation",
+        "assassination", "coup", "insurgency", "terrorism", "ceasefire",
+    ],
+    DisruptionType.ECONOMIC: [
+        "inflation", "recession", "bankruptcy", "currency", "price surge", "cost", "credit",
+        "oil price", "crude oil", "opec", "energy crisis", "fuel", "petroleum",
+        "devaluation", "default", "debt crisis",
+    ],
+    DisruptionType.TRANSPORTATION: [
+        "port", "shipping", "freight", "congestion", "logistics", "container", "rail",
+        "strait", "canal", "chokepoint", "reroute", "vessel", "tanker",
+    ],
+    DisruptionType.LABOR_STRIKE: ["strike", "labor", "workers", "union", "wage", "protest", "walkout", "layoff"],
+    DisruptionType.CYBER_ATTACK: ["cyber", "ransomware", "hack", "breach", "security", "malware", "phishing"],
+    DisruptionType.PANDEMIC: ["pandemic", "covid", "outbreak", "virus", "quarantine", "epidemic"],
+    DisruptionType.REGULATORY: ["regulation", "compliance", "ban", "policy", "law", "export ban", "restriction"],
+    DisruptionType.SUPPLIER_FAILURE: ["supplier", "bankruptcy", "default", "insolvency", "vendor"],
 }
 
 # Region detection keywords
 REGION_KEYWORDS = {
-    "Asia Pacific": ["china", "japan", "taiwan", "korea", "vietnam", "asia", "pacific", "semiconductor", "foxconn", "tsmc"],
-    "South Asia (India)": ["india", "mumbai", "delhi", "chennai", "kolkata", "gujarat", "bangalore", "hyderabad", "pune", "jnpt", "mundra", "visakhapatnam", "tata", "reliance", "adani", "infosys", "wipro", "mahindra"],
-    "Europe": ["europe", "eu", "germany", "france", "uk", "rotterdam", "hamburg", "brexit"],
-    "North America": ["us", "usa", "america", "canada", "mexico", "california", "texas"],
-    "Latin America": ["brazil", "argentina", "chile", "latin america", "south america"],
-    "Middle East & Africa": ["middle east", "africa", "saudi", "uae", "nigeria", "suez"],
+    "Asia Pacific": [
+        "china", "japan", "taiwan", "korea", "vietnam", "asia", "pacific",
+        "semiconductor", "foxconn", "tsmc", "indonesia", "thailand", "malaysia",
+        "philippines", "cambodia", "laos", "myanmar", "shenzhen", "shanghai",
+        "guangdong", "byd", "huawei", "samsung", "busan", "kaohsiung",
+        "malacca", "south china sea",
+    ],
+    "South Asia (India)": [
+        "india", "mumbai", "delhi", "chennai", "kolkata", "gujarat", "bangalore",
+        "hyderabad", "pune", "jnpt", "mundra", "visakhapatnam", "tata", "reliance",
+        "adani", "infosys", "wipro", "mahindra", "larsen", "bharat",
+        "nhava sheva", "bengaluru", "sri lanka", "bangladesh", "pakistan",
+        "nepal", "cochin", "kandla",
+    ],
+    "Europe": [
+        "europe", "eu", "germany", "france", "uk", "rotterdam", "hamburg", "brexit",
+        "italy", "spain", "netherlands", "belgium", "poland", "sweden", "norway",
+        "denmark", "antwerp", "felixstowe", "piraeus", "nato",
+    ],
+    "North America": [
+        "us", "usa", "america", "canada", "mexico", "california", "texas",
+        "pentagon", "white house", "washington", "los angeles", "new york",
+        "chicago", "detroit", "houston", "long beach", "savannah",
+    ],
+    "Latin America": [
+        "brazil", "argentina", "chile", "latin america", "south america",
+        "colombia", "peru", "ecuador", "venezuela", "panama", "panama canal",
+    ],
+    "Middle East & Africa": [
+        "middle east", "africa", "saudi", "uae", "nigeria", "suez",
+        "iran", "iraq", "persian gulf", "strait of hormuz", "hormuz",
+        "red sea", "yemen", "houthi", "oman", "qatar", "kuwait", "bahrain",
+        "libya", "egypt", "ethiopia", "jeddah", "dubai", "abu dhabi",
+        "bandar abbas", "bab el-mandeb", "aramco", "opec",
+        "south africa", "kenya", "morocco", "algeria", "tunisia",
+    ],
 }
 
 

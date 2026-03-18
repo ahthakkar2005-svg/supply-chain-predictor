@@ -61,13 +61,45 @@ NEWS_TEMPLATES = {
         "Supply chain software provider hit by security breach",
         "Logistics company {company} systems offline after attack",
     ],
+    "energy_crisis": [
+        "Oil prices surge {percent}% as {country} tensions disrupt {location} shipping routes",
+        "OPEC+ cuts production quota, crude oil supply tightens globally",
+        "Energy crisis deepens as {location} pipeline faces disruption",
+        "{country} conflict threatens oil tanker passage through {location}",
+        "Natural gas prices spike amid {region} supply disruptions",
+    ],
+    "conflict": [
+        "Military tensions between {country1} and {country2} escalate, supply chains at risk",
+        "Airspace closure over {region} disrupts air freight corridors",
+        "Naval blockade near {location} threatens critical shipping lane",
+        "Armed conflict in {region} forces evacuation of manufacturing facilities",
+    ],
 }
 
-COMPANIES = ["Acme Corp", "GlobalTech", "MegaSupply", "TradeCo", "PrimeParts", "UniSource", "AlphaLogistics"]
-PORTS = ["Shanghai", "Singapore", "Rotterdam", "Los Angeles", "Hamburg", "Shenzhen", "Mumbai JNPT", "Chennai", "Mundra", "Visakhapatnam"]
-PRODUCTS = ["semiconductors", "automotive parts", "pharmaceuticals", "consumer electronics", "raw materials", "chemicals"]
-COUNTRIES = ["China", "Japan", "Germany", "India", "Vietnam", "Taiwan", "South Korea", "Mexico"]
-LOCATIONS = ["Taiwan", "Guangdong Province", "Bavaria", "California", "Tokyo metropolitan area", "Yangtze Delta", "Gujarat", "Tamil Nadu", "Maharashtra", "Delhi NCR"]
+COMPANIES = [
+    "Acme Corp", "GlobalTech", "MegaSupply", "TradeCo", "PrimeParts", "UniSource", "AlphaLogistics",
+    "Tata Motors", "Reliance Industries", "Adani Ports", "Shell", "ExxonMobil", "Aramco", "BP",
+]
+PORTS = [
+    "Shanghai", "Singapore", "Rotterdam", "Los Angeles", "Hamburg", "Shenzhen",
+    "Mumbai JNPT", "Chennai", "Mundra", "Visakhapatnam",
+    "Bandar Abbas", "Jebel Ali", "Jeddah", "Busan", "Kaohsiung", "Colombo",
+]
+PRODUCTS = [
+    "semiconductors", "automotive parts", "pharmaceuticals", "consumer electronics", "raw materials", "chemicals",
+    "crude oil", "natural gas", "lithium batteries", "medical devices", "textiles", "agricultural products",
+]
+COUNTRIES = [
+    "China", "Japan", "Germany", "India", "Vietnam", "Taiwan", "South Korea", "Mexico",
+    "Iran", "USA", "Saudi Arabia", "Brazil", "Turkey", "Indonesia", "Thailand",
+    "Malaysia", "Philippines", "Bangladesh", "Iraq", "Yemen",
+]
+LOCATIONS = [
+    "Taiwan", "Guangdong Province", "Bavaria", "California", "Tokyo metropolitan area",
+    "Yangtze Delta", "Gujarat", "Tamil Nadu", "Maharashtra", "Delhi NCR",
+    "Strait of Hormuz", "Suez Canal", "Persian Gulf", "Red Sea", "Panama Canal",
+    "Bengaluru", "Hyderabad", "Pune", "Bab el-Mandeb", "Malacca Strait",
+]
 
 
 def generate_news_headline(disruption_type: str) -> tuple[str, str]:

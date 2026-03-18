@@ -33,6 +33,12 @@ SUPPLY_CHAIN_HUBS = [
     {"name": "Kolkata", "lat": 22.57, "lon": 88.36, "region": "South Asia (India)", "type": "port"},
     {"name": "Mundra (Gujarat)", "lat": 22.84, "lon": 69.72, "region": "South Asia (India)", "type": "port"},
     {"name": "Visakhapatnam", "lat": 17.69, "lon": 83.22, "region": "South Asia (India)", "type": "port"},
+    # Middle East & strategic chokepoints
+    {"name": "Bandar Abbas", "lat": 27.19, "lon": 56.28, "region": "Middle East & Africa", "type": "port"},
+    {"name": "Jeddah", "lat": 21.54, "lon": 39.17, "region": "Middle East & Africa", "type": "port"},
+    # East Asia - key container & semiconductor ports
+    {"name": "Busan", "lat": 35.10, "lon": 129.04, "region": "Asia Pacific", "type": "port"},
+    {"name": "Kaohsiung", "lat": 22.62, "lon": 120.31, "region": "Asia Pacific", "type": "port"},
 ]
 
 # Weather condition severity mapping

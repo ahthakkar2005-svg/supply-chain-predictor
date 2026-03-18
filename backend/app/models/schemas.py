@@ -43,7 +43,7 @@ class NewsArticle(BaseModel):
     description: Optional[str] = None
     content: Optional[str] = None
     source: str
-    url: str
+    url: Optional[str] = None
     published_at: datetime
     sentiment_score: float = Field(ge=-1.0, le=1.0, default=0.0)
     relevance_score: float = Field(ge=0.0, le=1.0, default=0.5)
@@ -127,3 +127,35 @@ class DashboardSummary(BaseModel):
     regions_at_risk: int
     predictions_accuracy: float
     last_updated: datetime
+
+
+class ScenarioInput(BaseModel):
+    """Input for 'What-If' risk scenario simulator"""
+    news_sentiment: float = Field(default=0.5, ge=0.0, le=1.0, description="Hypothetical news sentiment risk (0=low, 1=high risk)")
+    news_volume: float = Field(default=0.5, ge=0.0, le=1.0, description="Hypothetical news volume intensity")
+    historical_pattern: float = Field(default=0.5, ge=0.0, le=1.0, description="Geographic/Historical risk baseline")
+    supplier_concentration: float = Field(default=0.5, ge=0.0, le=1.0, description="Supplier concentration risk factor")
+    geopolitical_index: float = Field(default=0.5, ge=0.0, le=1.0, description="Hypothetical geopolitical instability")
+    market_volatility: float = Field(default=0.5, ge=0.0, le=1.0, description="Hypothetical market volatility")
+
+
+class RouteAnalysisRequest(BaseModel):
+    """Input for transit delay & cost simulator"""
+    origin_port: str = Field(description="Name of the starting hub (e.g. Mundra (Gujarat))")
+    destination_port: str = Field(description="Name of the destination hub (e.g. Dubai)")
+    cargo_value: float = Field(default=100000.0, ge=1.0, description="Approximate USD value of the container cargo")
+
+
+class RouteAnalysisResponse(BaseModel):
+    """Output for transit delay & cost simulator"""
+    origin_port: str
+    destination_port: str
+    distance_km: float
+    base_transit_days: int
+    predicted_delay_days: int
+    final_eta_days: int
+    base_cost_usd: float
+    final_cost_usd: float
+    risk_level: RiskLevel
+    delay_factors: List[str]
+    recommendations: List[str]

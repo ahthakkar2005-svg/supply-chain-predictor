@@ -28,13 +28,10 @@ async def lifespan(app: FastAPI):
     settings = get_settings()
     logger.info(f"📊 App: {settings.APP_NAME} v{settings.APP_VERSION}")
     
-    # Initialize MongoDB connection
-    from app.core.database import init_db, close_db
+    # Initialize MongoDB connections
+    from app.core.database import init_db, init_async_db, close_db, close_async_db
     init_db()
-    
-    # Initialize data store (loads from DB or generates + saves)
-    data_store = get_data_store()
-    logger.info(f"✅ Data store initialized with {len(data_store.news)} news articles, {len(data_store.predictions)} predictions")
+    await init_async_db()
     
     # Start real-time engine
     engine = get_realtime_engine()
@@ -47,6 +44,7 @@ async def lifespan(app: FastAPI):
     engine = get_realtime_engine()
     await engine.stop()
     close_db()
+    await close_async_db()
     logger.info("👋 Shutting down Supply Chain Disruption Predictor API...")
 
 
@@ -91,8 +89,19 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(dashboard_router)
-app.include_router(predictions_router)
+from fastapi import Depends
+from app.auth.dependencies import get_current_user
+from app.auth.router import router as auth_router
+
+app.include_router(auth_router)
+app.include_router(
+    dashboard_router,
+    dependencies=[Depends(get_current_user)]
+)
+app.include_router(
+    predictions_router,
+    dependencies=[Depends(get_current_user)]
+)
 app.include_router(websocket_router)
 
 

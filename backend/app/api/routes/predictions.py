@@ -2,23 +2,28 @@
 API Routes for Predictions and Risk Analysis
 """
 from fastapi import APIRouter, Query, Body
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 
 from app.ml import get_risk_predictor
 from app.nlp import get_nlp_pipeline
-from app.services import get_data_store
+from app.core.database import get_async_collection
+from app.models.db_models import doc_to_news, doc_to_supplier, doc_to_region_risk, doc_to_prediction
+from app.models.schemas import ScenarioInput, RouteAnalysisRequest, RouteAnalysisResponse
+from app.ml.predictor import AggregatedRisk
+from app.services.route_calculator import RouteCalculator
 
 router = APIRouter(prefix="/api/predictions", tags=["Predictions"])
 
 
 @router.get("/forecast")
 async def get_forecast(
-    days: int = Query(default=30, ge=7, le=90, description="Days to forecast")
+    days: int = Query(default=30, ge=7, le=90, description="Days to forecast"),
+    region: Optional[str] = Query(default=None, description="Filter forecast for a specific region")
 ):
     """Get AI-generated risk forecast for future dates"""
     predictor = get_risk_predictor()
-    forecast = predictor.predict_future_risk(days)
+    forecast = predictor.predict_future_risk(days, region=region)
     return {
         "forecast": forecast,
         "generated_at": datetime.utcnow().isoformat(),
@@ -52,24 +57,30 @@ async def analyze_text(
 async def get_risk_assessment():
     """Get comprehensive risk assessment from all data sources"""
     predictor = get_risk_predictor()
-    data_store = get_data_store()
     
     # Analyze news
+    db_news = await get_async_collection("news_articles")
+    news_docs = await db_news.find().sort("published_at", -1).limit(50).to_list(length=50)
     news_data = [
-        {"sentiment_score": n.sentiment_score, "disruption_type": n.disruption_type.value if n.disruption_type else None}
-        for n in data_store.news
+        {"sentiment_score": doc_to_news(n).sentiment_score, "disruption_type": doc_to_news(n).disruption_type.value if doc_to_news(n).disruption_type else None}
+        for n in news_docs
     ]
     news_signal = predictor.analyze_news_risk(news_data)
     
     # Analyze suppliers
+    db_suppliers = await get_async_collection("suppliers")
+    supplier_docs = await db_suppliers.find().to_list(length=50)
     supplier_data = [
-        {"region": s.region, "tier": s.tier, "is_critical": s.is_critical}
-        for s in data_store.suppliers
+        {"region": doc_to_supplier(s).region, "tier": doc_to_supplier(s).tier, "is_critical": doc_to_supplier(s).is_critical}
+        for s in supplier_docs
     ]
     supplier_signal = predictor.analyze_supplier_risk(supplier_data)
     
     # Historical pattern (for top region)
-    top_region = data_store.region_risks[0] if data_store.region_risks else None
+    db_regions = await get_async_collection("region_risks")
+    region_docs = await db_regions.find().sort("risk_score", -1).limit(1).to_list(length=1)
+    
+    top_region = doc_to_region_risk(region_docs[0]) if region_docs else None
     historical_signal = predictor.analyze_historical_pattern(
         region=top_region.region_name if top_region else "Asia Pacific",
         disruption_type="geopolitical"
@@ -106,11 +117,13 @@ async def get_risk_assessment():
 @router.get("/disruption-types")
 async def get_disruption_type_analysis():
     """Get risk breakdown by disruption type"""
-    data_store = get_data_store()
+    db_preds = await get_async_collection("predictions")
+    pred_docs = await db_preds.find().to_list(length=100)
+    predictions = [doc_to_prediction(d) for d in pred_docs]
     
     # Analyze predictions by disruption type
     type_analysis = {}
-    for pred in data_store.predictions:
+    for pred in predictions:
         d_type = pred.disruption_type.value
         if d_type not in type_analysis:
             type_analysis[d_type] = {
@@ -140,7 +153,9 @@ async def get_disruption_type_analysis():
 @router.get("/regional-breakdown")
 async def get_regional_breakdown():
     """Get detailed risk breakdown by region"""
-    data_store = get_data_store()
+    db_regions = await get_async_collection("region_risks")
+    region_docs = await db_regions.find().to_list(length=100)
+    region_risks = [doc_to_region_risk(d) for d in region_docs]
     
     return {
         "regions": [
@@ -153,7 +168,57 @@ async def get_regional_breakdown():
                 "active_alerts": r.active_alerts,
                 "top_risks": r.top_risks
             }
-            for r in data_store.region_risks
+            for r in region_risks
         ],
-        "highest_risk_region": max(data_store.region_risks, key=lambda x: x.risk_score).region_name if data_store.region_risks else None
+        "highest_risk_region": max(region_risks, key=lambda x: x.risk_score).region_name if region_risks else None
     }
+
+
+@router.post("/scenario")
+async def simulate_scenario(
+    scenario: ScenarioInput = Body(..., description="Hypothetical risk factors for simulation")
+):
+    """Test custom 'What-If' scenarios to simulate risk impact"""
+    predictor = get_risk_predictor()
+    
+    # Predict point-in-time score using XGBoost
+    features = scenario.dict()
+    prediction = predictor.predict_risk_score(features)
+    
+    # Map raw float score to a RiskLevel Enum
+    risk_level_enum = predictor._get_risk_level(prediction["risk_score"])
+    
+    # Mock an AggregatedRisk object to use the existing recommendation engine
+    dummy_risk = AggregatedRisk(
+        overall_score=prediction["risk_score"],
+        risk_level=risk_level_enum,
+        confidence=prediction.get("confidence", 0.8),
+        contributing_signals=[],
+        top_factors=["Custom simulation parameters triggered outcome"],
+        trend="stable"
+    )
+    
+    recommendations = predictor.generate_recommendations(dummy_risk)
+    
+    # Attach generated metadata
+    prediction.update({
+        "risk_level": risk_level_enum.value,
+        "recommendations": recommendations,
+        "simulated": True,
+        "generated_at": datetime.utcnow().isoformat()
+    })
+    
+    return prediction
+
+
+@router.post("/route-analysis", response_model=RouteAnalysisResponse)
+async def analyze_shipping_route(
+    request: RouteAnalysisRequest = Body(..., description="Shipping route details for analysis")
+):
+    """Analyze a shipping route for ETAs, costs, and potential live disruptions"""
+    try:
+        response = RouteCalculator.analyze_route(request)
+        return response
+    except ValueError as e:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail=str(e))

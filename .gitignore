@@ -1,0 +1,46 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.whl
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+
+# ---- Environment ----
+.env
+.env.local
+.env.*.local
+
+# ---- IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Node ----
+node_modules/
+frontend/dist/
+frontend/node_modules/
+
+# ---- Data & Models ----
+*.db
+data/models/
+mlruns/
+
+# ---- Docker ----
+docker-compose.override.yml

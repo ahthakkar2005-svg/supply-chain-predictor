@@ -12,7 +12,12 @@ from typing import Optional
 from app.services.connection_manager import get_connection_manager
 from app.services.news_service import get_news_service
 from app.services.weather_service import get_weather_service
-from app.services.data_simulator import get_data_store
+from app.core.database import get_async_collection
+from app.models.db_models import (
+    doc_to_dashboard_summary, doc_to_region_risk, doc_to_alert,
+    doc_to_news, doc_to_risk_metric, doc_to_supplier
+)
+from app.models import RiskLevel
 from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
@@ -94,26 +99,41 @@ class RealtimeEngine:
             try:
                 manager = get_connection_manager()
                 news_service = get_news_service()
-                data_store = get_data_store()
 
                 # Fetch real news
                 articles = await news_service.fetch_news(20)
 
                 if articles:
-                    # Update the data store
+                    db_news = await get_async_collection("news_articles")
+                    
+                    # Deduplicate and sort
                     new_articles = []
-                    existing_titles = {n.title for n in data_store.news}
-
+                    # In a real app we'd query by URL or dedup hash, here we do a simple check
+                    # Or batch insert with unordered=True
+                    
                     for article in articles:
-                        if article.title not in existing_titles:
+                        # Convert model to doc
+                        doc = {
+                            "id": article.id,
+                            "title": article.title,
+                            "source": article.source,
+                            "sentiment_score": article.sentiment_score,
+                            "published_at": article.published_at,
+                            "region": article.region,
+                            "disruption_type": article.disruption_type.value if article.disruption_type else None
+                        }
+                        # Simple upsert by title to avoid dupes purely for demo
+                        result = await db_news.update_one(
+                            {"title": article.title}, 
+                            {"$setOnInsert": doc},
+                            upsert=True
+                        )
+                        if result.upserted_id:
                             new_articles.append(article)
-                            data_store.news.insert(0, article)
-
-                    # Keep only last 50 articles
-                    data_store.news = data_store.news[:50]
 
                     # Broadcast new articles
                     if new_articles and manager.connection_count > 0:
+                        total_count = await db_news.count_documents({})
                         await manager.broadcast("new_news", {
                             "articles": [
                                 {
@@ -125,14 +145,15 @@ class RealtimeEngine:
                                     "region": a.region,
                                     "disruption_type": a.disruption_type.value if a.disruption_type else None,
                                 }
-                                for a in new_articles[:5]  # Max 5 new articles per broadcast
+                                for a in new_articles[:5]
                             ],
-                            "total_count": len(data_store.news),
+                            "total_count": total_count,
                         })
                         logger.info(f"📰 Broadcast {len(new_articles)} new articles")
 
-                # Also update the dashboard summary timestamp
-                data_store.dashboard_summary.last_updated = datetime.utcnow()
+                # Update the dashboard summary timestamp
+                db_summary = await get_async_collection("dashboard_summary")
+                await db_summary.update_many({}, {"$set": {"last_updated": datetime.utcnow()}})
 
                 await asyncio.sleep(60)  # Fetch every 60 seconds
 
@@ -151,22 +172,36 @@ class RealtimeEngine:
             try:
                 manager = get_connection_manager()
                 weather_service = get_weather_service()
-                data_store = get_data_store()
 
                 # Fetch weather alerts
                 weather_alerts = await weather_service.fetch_weather_alerts()
 
                 if weather_alerts:
+                    db_alerts = await get_async_collection("alerts")
                     for alert in weather_alerts:
-                        data_store.alerts.insert(0, alert)
+                        doc = {
+                            "id": alert.id,
+                            "title": alert.title,
+                            "message": alert.message,
+                            "risk_level": alert.risk_level.value,
+                            "region": alert.region,
+                            "created_at": alert.created_at,
+                            "is_read": alert.is_read,
+                            "is_acknowledged": alert.is_acknowledged
+                        }
+                        await db_alerts.update_one({"id": alert.id}, {"$setOnInsert": doc}, upsert=True)
 
-                    # Keep only last 20 alerts
-                    data_store.alerts = data_store.alerts[:20]
+                    total_alerts = await db_alerts.count_documents({})
+                    critical_alerts = await db_alerts.count_documents({"risk_level": "critical"})
 
                     # Update summary
-                    data_store.dashboard_summary.total_active_alerts = len(data_store.alerts)
-                    data_store.dashboard_summary.critical_alerts = len(
-                        [a for a in data_store.alerts if a.risk_level.value == "critical"]
+                    db_summary = await get_async_collection("dashboard_summary")
+                    await db_summary.update_many(
+                        {},
+                        {"$set": {
+                            "total_active_alerts": total_alerts,
+                            "critical_alerts": critical_alerts
+                        }}
                     )
 
                     # Broadcast weather alerts
@@ -202,115 +237,147 @@ class RealtimeEngine:
     async def _broadcast_risk_update(self):
         """Apply small risk drift and broadcast"""
         manager = get_connection_manager()
-        data_store = get_data_store()
-        summary = data_store.dashboard_summary
+        db_summary = await get_async_collection("dashboard_summary")
+        doc = await db_summary.find_one()
+        if not doc:
+            return
+            
+        summary = doc_to_dashboard_summary(doc)
 
         # Small random drift to risk score (±0.02)
         drift = random.gauss(0, 0.01)
-        new_score = max(0.05, min(0.98, summary.overall_risk_score + drift))
-        old_score = summary.overall_risk_score
-        summary.overall_risk_score = round(new_score, 3)
+        new_score = float(max(0.05, min(0.98, float(summary.overall_risk_score) + drift)))
+        old_score = float(summary.overall_risk_score)
+        final_score = float(round(new_score, 3))
 
         # Update risk trend
-        if new_score > old_score + 0.01:
-            summary.risk_trend = "up"
-        elif new_score < old_score - 0.01:
-            summary.risk_trend = "down"
-        else:
-            summary.risk_trend = "stable"
-
-        summary.last_updated = datetime.utcnow()
+        trend = "stable"
+        if final_score > old_score + 0.01:
+            trend = "up"
+        elif final_score < old_score - 0.01:
+            trend = "down"
 
         # Update risk level
-        from app.models import RiskLevel
-        if new_score >= 0.85:
-            summary.overall_risk_level = RiskLevel.CRITICAL
-        elif new_score >= 0.7:
-            summary.overall_risk_level = RiskLevel.HIGH
-        elif new_score >= 0.4:
-            summary.overall_risk_level = RiskLevel.MEDIUM
-        else:
-            summary.overall_risk_level = RiskLevel.LOW
+        risk_level = RiskLevel.LOW
+        if final_score >= 0.85:
+            risk_level = RiskLevel.CRITICAL
+        elif final_score >= 0.7:
+            risk_level = RiskLevel.HIGH
+        elif final_score >= 0.4:
+            risk_level = RiskLevel.MEDIUM
+
+        now = datetime.utcnow()
+        await db_summary.update_one(
+            {"_id": doc["_id"]},
+            {"$set": {
+                "overall_risk_score": final_score,
+                "risk_trend": trend,
+                "overall_risk_level": risk_level.value,
+                "last_updated": now
+            }}
+        )
 
         await manager.broadcast("risk_update", {
-            "overall_risk_score": summary.overall_risk_score,
-            "overall_risk_level": summary.overall_risk_level.value,
-            "risk_trend": summary.risk_trend,
+            "overall_risk_score": final_score,
+            "overall_risk_level": risk_level.value,
+            "risk_trend": trend,
             "total_active_alerts": summary.total_active_alerts,
             "critical_alerts": summary.critical_alerts,
             "high_alerts": summary.high_alerts,
-            "last_updated": summary.last_updated.isoformat(),
+            "last_updated": now.isoformat(),
         })
 
     async def _broadcast_metrics_update(self):
         """Update category metrics with small drift"""
         manager = get_connection_manager()
-        data_store = get_data_store()
+        db_metrics = await get_async_collection("risk_metrics")
+        
+        docs = await db_metrics.find().to_list(length=100)
+        updated_metrics = []
 
-        for metric in data_store.risk_metrics:
+        for doc in docs:
+            metric_doc = doc_to_risk_metric(doc)
             drift = random.gauss(0, 0.015)
-            old_score = metric.current_score
-            new_score = max(0.05, min(0.95, metric.current_score + drift))
-            metric.previous_score = old_score
-            metric.current_score = round(new_score, 3)
+            old_score = float(metric_doc.current_score)
+            new_score = float(max(0.05, min(0.95, float(metric_doc.current_score) + drift)))
+            
+            # calculate changes
+            new_cur = float(round(new_score, 3))
+            change = new_cur - old_score
+            
+            trend = "stable"
+            if abs(change) >= 0.01:
+                trend = "up" if change > 0 else "down"
 
-            change = new_score - old_score
-            if abs(change) < 0.01:
-                metric.trend = "stable"
-            elif change > 0:
-                metric.trend = "up"
-            else:
-                metric.trend = "down"
-            metric.change_percent = round(change * 100, 1)
+            change_pct = float(round(float(change) * 100.0, 1))
+
+            # Update DB
+            await db_metrics.update_one(
+                {"_id": doc["_id"]},
+                {"$set": {
+                    "previous_score": old_score,
+                    "current_score": new_cur,
+                    "trend": trend,
+                    "change_percent": change_pct
+                }}
+            )
+
+            updated_metrics.append({
+                "category": metric_doc.category,
+                "current_score": new_cur,
+                "previous_score": old_score,
+                "trend": trend,
+                "change_percent": change_pct,
+            })
 
         await manager.broadcast("metrics_update", {
-            "metrics": [
-                {
-                    "category": m.category,
-                    "current_score": m.current_score,
-                    "previous_score": m.previous_score,
-                    "trend": m.trend,
-                    "change_percent": m.change_percent,
-                }
-                for m in data_store.risk_metrics
-            ]
+            "metrics": updated_metrics
         })
 
     async def _broadcast_region_update(self):
         """Update region risks with drift"""
         manager = get_connection_manager()
-        data_store = get_data_store()
+        db_regions = await get_async_collection("region_risks")
+        docs = await db_regions.find().to_list(length=100)
 
-        from app.models import RiskLevel
+        updated_regions = []
 
-        for region in data_store.region_risks:
+        for doc in docs:
+            region = doc_to_region_risk(doc)
             drift = random.gauss(0, 0.02)
-            new_score = max(0.05, min(0.95, region.risk_score + drift))
-            region.risk_score = round(new_score, 3)
+            new_score = float(max(0.05, min(0.95, float(region.risk_score) + drift)))
+            final_score = float(round(new_score, 3))
 
-            if new_score >= 0.85:
-                region.risk_level = RiskLevel.CRITICAL
-            elif new_score >= 0.7:
-                region.risk_level = RiskLevel.HIGH
-            elif new_score >= 0.4:
-                region.risk_level = RiskLevel.MEDIUM
-            else:
-                region.risk_level = RiskLevel.LOW
+            risk_level = RiskLevel.LOW
+            if final_score >= 0.85:
+                risk_level = RiskLevel.CRITICAL
+            elif final_score >= 0.7:
+                risk_level = RiskLevel.HIGH
+            elif final_score >= 0.4:
+                risk_level = RiskLevel.MEDIUM
+
+            # Update DB
+            await db_regions.update_one(
+                {"_id": doc["_id"]},
+                {"$set": {
+                    "risk_score": final_score,
+                    "risk_level": risk_level.value
+                }}
+            )
+
+            updated_regions.append({
+                "region_code": region.region_code,
+                "region_name": region.region_name,
+                "lat": region.lat,
+                "lng": region.lng,
+                "risk_score": final_score,
+                "risk_level": risk_level.value,
+                "active_alerts": region.active_alerts,
+                "top_risks": region.top_risks,
+            })
 
         await manager.broadcast("region_update", {
-            "regions": [
-                {
-                    "region_code": r.region_code,
-                    "region_name": r.region_name,
-                    "lat": r.lat,
-                    "lng": r.lng,
-                    "risk_score": r.risk_score,
-                    "risk_level": r.risk_level.value,
-                    "active_alerts": r.active_alerts,
-                    "top_risks": r.top_risks,
-                }
-                for r in data_store.region_risks
-            ]
+            "regions": updated_regions
         })
 
 

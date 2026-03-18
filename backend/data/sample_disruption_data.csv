@@ -1,0 +1,91 @@
+date,region,disruption_type,risk_score,news_sentiment,news_volume,supplier_concentration,commodity_price_delta,shipping_delay_index,weather_severity,geopolitical_tension
+2024-01-01,Asia Pacific,geopolitical,0.62,-0.35,120,0.72,0.05,0.45,0.10,0.70
+2024-01-02,Asia Pacific,geopolitical,0.65,-0.40,135,0.72,0.06,0.47,0.08,0.72
+2024-01-03,Asia Pacific,transportation,0.58,-0.25,110,0.70,0.04,0.50,0.12,0.68
+2024-01-04,Europe,economic,0.45,-0.15,80,0.55,0.08,0.30,0.05,0.40
+2024-01-05,Europe,economic,0.47,-0.18,85,0.55,0.10,0.32,0.04,0.42
+2024-01-06,North America,transportation,0.38,-0.10,60,0.45,0.03,0.35,0.15,0.25
+2024-01-07,North America,natural_disaster,0.52,-0.30,95,0.45,0.02,0.28,0.65,0.20
+2024-01-08,Asia Pacific,geopolitical,0.70,-0.45,150,0.75,0.07,0.52,0.10,0.78
+2024-01-09,Asia Pacific,geopolitical,0.72,-0.48,155,0.75,0.08,0.55,0.11,0.80
+2024-01-10,Latin America,natural_disaster,0.55,-0.28,90,0.50,0.04,0.40,0.55,0.30
+2024-01-11,Latin America,economic,0.48,-0.20,75,0.52,0.06,0.38,0.20,0.35
+2024-01-12,Middle East & Africa,geopolitical,0.68,-0.42,140,0.60,0.12,0.60,0.15,0.82
+2024-01-13,Middle East & Africa,geopolitical,0.75,-0.50,160,0.62,0.15,0.65,0.12,0.85
+2024-01-14,Europe,transportation,0.42,-0.12,70,0.53,0.05,0.42,0.08,0.38
+2024-01-15,Asia Pacific,cyber,0.60,-0.32,100,0.70,0.03,0.35,0.05,0.55
+2024-01-16,North America,labor,0.44,-0.15,65,0.48,0.02,0.30,0.10,0.22
+2024-01-17,North America,labor,0.46,-0.18,70,0.48,0.03,0.32,0.08,0.24
+2024-01-18,Asia Pacific,transportation,0.63,-0.35,125,0.73,0.06,0.58,0.10,0.65
+2024-01-19,Europe,economic,0.50,-0.22,88,0.56,0.09,0.34,0.06,0.45
+2024-01-20,Asia Pacific,geopolitical,0.68,-0.42,145,0.74,0.07,0.50,0.09,0.75
+2024-01-21,Middle East & Africa,conflict,0.80,-0.55,170,0.65,0.18,0.70,0.14,0.90
+2024-01-22,Middle East & Africa,conflict,0.82,-0.58,175,0.65,0.20,0.72,0.15,0.92
+2024-01-23,Asia Pacific,supplier,0.55,-0.25,95,0.78,0.04,0.40,0.08,0.60
+2024-01-24,Europe,cyber,0.48,-0.20,78,0.54,0.03,0.28,0.04,0.42
+2024-01-25,North America,economic,0.40,-0.12,58,0.46,0.05,0.25,0.06,0.28
+2024-01-26,Asia Pacific,natural_disaster,0.72,-0.48,155,0.72,0.05,0.45,0.75,0.60
+2024-01-27,Latin America,transportation,0.50,-0.22,82,0.52,0.04,0.45,0.25,0.32
+2024-01-28,Europe,geopolitical,0.52,-0.25,90,0.55,0.07,0.35,0.06,0.55
+2024-01-29,Asia Pacific,geopolitical,0.66,-0.40,138,0.73,0.06,0.48,0.10,0.72
+2024-01-30,North America,supplier,0.42,-0.14,62,0.50,0.03,0.28,0.08,0.25
+2024-02-01,Asia Pacific,geopolitical,0.64,-0.38,128,0.72,0.06,0.46,0.09,0.71
+2024-02-02,Asia Pacific,transportation,0.60,-0.30,115,0.71,0.05,0.52,0.11,0.65
+2024-02-03,Europe,economic,0.46,-0.16,82,0.55,0.09,0.31,0.05,0.41
+2024-02-04,North America,natural_disaster,0.55,-0.28,98,0.46,0.03,0.30,0.70,0.22
+2024-02-05,Middle East & Africa,conflict,0.78,-0.52,165,0.63,0.16,0.68,0.13,0.88
+2024-02-06,Latin America,economic,0.47,-0.19,76,0.51,0.05,0.36,0.18,0.33
+2024-02-07,Asia Pacific,geopolitical,0.69,-0.44,148,0.74,0.07,0.51,0.10,0.76
+2024-02-08,Europe,transportation,0.44,-0.14,72,0.54,0.06,0.44,0.07,0.40
+2024-02-09,North America,cyber,0.50,-0.24,85,0.47,0.02,0.26,0.04,0.30
+2024-02-10,Asia Pacific,supplier,0.57,-0.27,100,0.76,0.05,0.42,0.09,0.62
+2024-02-11,Middle East & Africa,geopolitical,0.72,-0.46,152,0.61,0.14,0.62,0.14,0.84
+2024-02-12,Europe,labor,0.43,-0.13,68,0.53,0.04,0.30,0.05,0.36
+2024-02-13,Asia Pacific,geopolitical,0.67,-0.41,142,0.73,0.07,0.49,0.10,0.74
+2024-02-14,North America,economic,0.41,-0.13,60,0.47,0.06,0.26,0.07,0.29
+2024-02-15,Latin America,natural_disaster,0.58,-0.30,94,0.51,0.04,0.42,0.60,0.31
+2024-02-16,Asia Pacific,transportation,0.62,-0.34,122,0.72,0.06,0.54,0.11,0.66
+2024-02-17,Europe,geopolitical,0.54,-0.27,92,0.56,0.08,0.36,0.06,0.57
+2024-02-18,Middle East & Africa,conflict,0.81,-0.56,172,0.64,0.19,0.71,0.14,0.91
+2024-02-19,North America,transportation,0.39,-0.11,62,0.46,0.03,0.34,0.14,0.26
+2024-02-20,Asia Pacific,geopolitical,0.71,-0.47,156,0.75,0.08,0.53,0.10,0.79
+2024-02-21,Europe,economic,0.49,-0.21,86,0.55,0.10,0.33,0.05,0.44
+2024-02-22,Latin America,transportation,0.51,-0.23,84,0.52,0.05,0.46,0.22,0.34
+2024-02-23,Asia Pacific,natural_disaster,0.70,-0.45,150,0.71,0.05,0.44,0.72,0.58
+2024-02-24,North America,labor,0.45,-0.16,68,0.48,0.02,0.31,0.09,0.23
+2024-02-25,Middle East & Africa,geopolitical,0.74,-0.49,158,0.62,0.15,0.64,0.13,0.86
+2024-02-26,Asia Pacific,cyber,0.58,-0.30,102,0.70,0.04,0.36,0.06,0.56
+2024-02-27,Europe,supplier,0.46,-0.17,74,0.57,0.05,0.32,0.05,0.40
+2024-02-28,Asia Pacific,geopolitical,0.65,-0.39,132,0.73,0.06,0.47,0.10,0.73
+2024-02-29,North America,economic,0.42,-0.14,64,0.47,0.07,0.27,0.08,0.30
+2024-03-01,Asia Pacific,geopolitical,0.66,-0.40,136,0.73,0.06,0.48,0.09,0.73
+2024-03-02,Europe,transportation,0.45,-0.15,74,0.54,0.06,0.43,0.07,0.39
+2024-03-03,Middle East & Africa,conflict,0.79,-0.54,168,0.64,0.17,0.69,0.14,0.89
+2024-03-04,Latin America,economic,0.48,-0.20,78,0.52,0.06,0.37,0.19,0.34
+2024-03-05,Asia Pacific,transportation,0.61,-0.32,118,0.72,0.05,0.53,0.11,0.66
+2024-03-06,North America,natural_disaster,0.53,-0.27,92,0.46,0.02,0.29,0.68,0.21
+2024-03-07,Europe,economic,0.48,-0.19,84,0.55,0.09,0.32,0.05,0.43
+2024-03-08,Asia Pacific,geopolitical,0.68,-0.43,144,0.74,0.07,0.50,0.10,0.76
+2024-03-09,Middle East & Africa,geopolitical,0.73,-0.48,154,0.62,0.14,0.63,0.13,0.85
+2024-03-10,North America,cyber,0.49,-0.22,82,0.47,0.02,0.27,0.05,0.28
+2024-03-11,Asia Pacific,supplier,0.56,-0.26,98,0.77,0.04,0.41,0.08,0.61
+2024-03-12,Europe,labor,0.44,-0.14,70,0.54,0.05,0.31,0.05,0.37
+2024-03-13,Latin America,natural_disaster,0.57,-0.29,92,0.51,0.04,0.41,0.58,0.31
+2024-03-14,Asia Pacific,geopolitical,0.67,-0.42,140,0.74,0.07,0.49,0.10,0.75
+2024-03-15,North America,transportation,0.40,-0.12,64,0.46,0.04,0.36,0.15,0.27
+2024-03-16,Middle East & Africa,conflict,0.80,-0.55,170,0.64,0.18,0.70,0.14,0.90
+2024-03-17,Europe,geopolitical,0.53,-0.26,91,0.56,0.07,0.35,0.06,0.56
+2024-03-18,Asia Pacific,natural_disaster,0.71,-0.46,152,0.72,0.05,0.45,0.73,0.59
+2024-03-19,Latin America,transportation,0.50,-0.22,83,0.52,0.04,0.44,0.23,0.33
+2024-03-20,North America,economic,0.41,-0.13,61,0.47,0.06,0.26,0.07,0.29
+2024-03-21,Asia Pacific,geopolitical,0.70,-0.45,150,0.75,0.08,0.52,0.10,0.78
+2024-03-22,Europe,economic,0.47,-0.18,83,0.55,0.09,0.33,0.05,0.43
+2024-03-23,Middle East & Africa,geopolitical,0.71,-0.46,150,0.61,0.13,0.61,0.13,0.83
+2024-03-24,Asia Pacific,transportation,0.59,-0.31,114,0.71,0.05,0.51,0.11,0.64
+2024-03-25,North America,labor,0.43,-0.14,66,0.48,0.02,0.30,0.09,0.23
+2024-03-26,Europe,cyber,0.47,-0.19,76,0.54,0.03,0.29,0.04,0.41
+2024-03-27,Asia Pacific,geopolitical,0.66,-0.40,138,0.73,0.06,0.48,0.10,0.73
+2024-03-28,Latin America,economic,0.49,-0.21,80,0.52,0.06,0.38,0.20,0.35
+2024-03-29,Middle East & Africa,conflict,0.82,-0.58,176,0.65,0.20,0.73,0.15,0.92
+2024-03-30,Asia Pacific,supplier,0.55,-0.25,96,0.77,0.04,0.40,0.08,0.60
+2024-03-31,North America,natural_disaster,0.54,-0.28,94,0.46,0.03,0.30,0.70,0.22

@@ -5,7 +5,11 @@ from fastapi import APIRouter, Query
 from typing import List, Optional
 from datetime import datetime
 
-from app.services import get_data_store
+from app.core.database import get_async_collection
+from app.models.db_models import (
+    doc_to_dashboard_summary, doc_to_region_risk, doc_to_risk_metric,
+    doc_to_prediction, doc_to_alert, doc_to_supplier, doc_to_news
+)
 from app.models import (
     DashboardSummary, RegionRisk, RiskMetric, 
     Prediction, Alert, Supplier, NewsArticle
@@ -16,23 +20,25 @@ router = APIRouter(prefix="/api/dashboard", tags=["Dashboard"])
 
 @router.get("/summary", response_model=DashboardSummary)
 async def get_dashboard_summary():
-    """Get executive dashboard summary with key metrics"""
-    data_store = get_data_store()
-    return data_store.dashboard_summary
+    db = await get_async_collection("dashboard_summary")
+    doc = await db.find_one()
+    return doc_to_dashboard_summary(doc) if doc else None
 
 
 @router.get("/regions", response_model=List[RegionRisk])
 async def get_region_risks():
     """Get risk data for all geographic regions"""
-    data_store = get_data_store()
-    return data_store.region_risks
+    db = await get_async_collection("region_risks")
+    docs = await db.find().to_list(length=100)
+    return [doc_to_region_risk(d) for d in docs]
 
 
 @router.get("/metrics", response_model=List[RiskMetric])
 async def get_risk_metrics():
     """Get risk metrics by supply chain category"""
-    data_store = get_data_store()
-    return data_store.risk_metrics
+    db = await get_async_collection("risk_metrics")
+    docs = await db.find().to_list(length=100)
+    return [doc_to_risk_metric(d) for d in docs]
 
 
 @router.get("/time-series")
@@ -40,8 +46,14 @@ async def get_time_series_data(
     days: int = Query(default=30, ge=7, le=90, description="Number of days of historical data")
 ):
     """Get time series data for trend charts"""
-    data_store = get_data_store()
-    return data_store.time_series[-days:]
+    db = await get_async_collection("time_series")
+    pipeline = [{"$sort": {"date": 1}}, {"$project": {"_id": 0}}]
+    docs = await db.aggregate(pipeline).to_list(length=days)
+    # The DB will return ascending sorted from first date. If we want last `days`,
+    # we sort descending by date, limit, then maybe sort ascending again.
+    pipeline = [{"$sort": {"date": -1}}, {"$limit": days}, {"$project": {"_id": 0}}]
+    docs = await db.aggregate(pipeline).to_list(length=days)
+    return sorted(docs, key=lambda x: x["date"])
 
 
 @router.get("/predictions", response_model=List[Prediction])
@@ -50,13 +62,13 @@ async def get_predictions(
     risk_level: Optional[str] = Query(default=None)
 ):
     """Get AI-generated predictions"""
-    data_store = get_data_store()
-    predictions = data_store.predictions
-    
+    db = await get_async_collection("predictions")
+    query = {}
     if risk_level:
-        predictions = [p for p in predictions if p.risk_level.value == risk_level.lower()]
+        query["risk_level"] = risk_level.lower()
     
-    return predictions[:limit]
+    docs = await db.find(query).sort("prediction_date", -1).to_list(length=limit)
+    return [doc_to_prediction(d) for d in docs]
 
 
 @router.get("/alerts", response_model=List[Alert])
@@ -65,35 +77,35 @@ async def get_alerts(
     limit: int = Query(default=10, ge=1, le=50)
 ):
     """Get active alerts"""
-    data_store = get_data_store()
-    alerts = data_store.alerts
-    
+    db = await get_async_collection("alerts")
+    query = {}
     if unread_only:
-        alerts = [a for a in alerts if not a.is_read]
-    
-    return alerts[:limit]
+        query["is_read"] = False
+        
+    docs = await db.find(query).sort("created_at", -1).to_list(length=limit)
+    return [doc_to_alert(d) for d in docs]
 
 
 @router.post("/alerts/{alert_id}/read")
 async def mark_alert_read(alert_id: str):
     """Mark an alert as read"""
-    data_store = get_data_store()
-    for alert in data_store.alerts:
-        if alert.id == alert_id:
-            alert.is_read = True
-            return {"success": True, "message": "Alert marked as read"}
+    db = await get_async_collection("alerts")
+    result = await db.update_one({"id": alert_id}, {"$set": {"is_read": True}})
+    if result.modified_count > 0:
+        return {"success": True, "message": "Alert marked as read"}
     return {"success": False, "message": "Alert not found"}
 
 
 @router.post("/alerts/{alert_id}/acknowledge")
 async def acknowledge_alert(alert_id: str):
     """Acknowledge an alert"""
-    data_store = get_data_store()
-    for alert in data_store.alerts:
-        if alert.id == alert_id:
-            alert.is_acknowledged = True
-            alert.is_read = True
-            return {"success": True, "message": "Alert acknowledged"}
+    db = await get_async_collection("alerts")
+    result = await db.update_one(
+        {"id": alert_id}, 
+        {"$set": {"is_acknowledged": True, "is_read": True}}
+    )
+    if result.modified_count > 0:
+        return {"success": True, "message": "Alert acknowledged"}
     return {"success": False, "message": "Alert not found"}
 
 
@@ -103,16 +115,21 @@ async def get_suppliers(
     sort_by: str = Query(default="risk_score", description="Sort field: risk_score, name, tier")
 ):
     """Get supplier list with risk assessments"""
-    data_store = get_data_store()
-    suppliers = data_store.suppliers
+    db = await get_async_collection("suppliers")
+    
+    # Map sort_by parameter to valid MongoDB field
+    sort_field = "risk_score"
+    sort_dir = -1  # Descending for risk_score
     
     if sort_by == "name":
-        suppliers = sorted(suppliers, key=lambda x: x.name)
+        sort_field = "name"
+        sort_dir = 1
     elif sort_by == "tier":
-        suppliers = sorted(suppliers, key=lambda x: x.tier)
-    # Default is already sorted by risk_score
-    
-    return suppliers[:limit]
+        sort_field = "tier"
+        sort_dir = 1
+        
+    docs = await db.find().sort(sort_field, sort_dir).to_list(length=limit)
+    return [doc_to_supplier(d) for d in docs]
 
 
 @router.get("/news", response_model=List[NewsArticle])
@@ -121,13 +138,15 @@ async def get_news(
     region: Optional[str] = Query(default=None)
 ):
     """Get latest supply chain news with analysis"""
-    data_store = get_data_store()
-    news = data_store.news
+    db = await get_async_collection("news_articles")
     
+    filter_query = {}
     if region:
-        news = [n for n in news if n.region and region.lower() in n.region.lower()]
-    
-    return news[:limit]
+        # Regex for case-insensitive partial match
+        filter_query["region"] = {"$regex": region, "$options": "i"}
+        
+    docs = await db.find(filter_query).sort("published_at", -1).to_list(length=limit)
+    return [doc_to_news(d) for d in docs]
 
 
 @router.get("/ports")
@@ -171,6 +190,9 @@ async def get_ports(
 @router.post("/refresh")
 async def refresh_data():
     """Refresh all dashboard data (for demo purposes)"""
+    from app.services.data_simulator import get_data_store
+    
+    # Can still run synchronously since refresh_data is synchronous and will update DB
     data_store = get_data_store()
     data_store.refresh_data()
     return {
