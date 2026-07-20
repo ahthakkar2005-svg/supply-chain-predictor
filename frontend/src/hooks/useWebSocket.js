@@ -27,7 +27,8 @@ export function useWebSocket(url = null) {
     const maxReconnectAttempts = 10;
 
     // Build WebSocket URL
-    const wsUrl = url || `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws`;
+    const defaultWsUrl = import.meta.env.VITE_WS_URL || 'wss://supply-chain-predictor-00q5.onrender.com/ws';
+    const wsUrl = url || defaultWsUrl;
 
     /**
      * Register an event listener for a specific event type
