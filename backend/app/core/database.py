@@ -114,22 +114,21 @@ async def init_async_db():
         from motor.motor_asyncio import AsyncIOMotorClient
 
         settings = get_settings()
-        _async_client = AsyncIOMotorClient(
+        client = AsyncIOMotorClient(
             settings.MONGODB_URL,
             maxPoolSize=50,
             minPoolSize=5,
-            serverSelectionTimeoutMS=5000,
+            serverSelectionTimeoutMS=2000,
         )
+        await client.admin.command("ping")
+        _async_client = client
         _async_db = _async_client[settings.MONGODB_DB_NAME]
-
-        # Verify connection
-        await _async_client.admin.command("ping")
         logger.info("⚡ Async Motor client connected")
 
-    except ImportError:
-        logger.warning("motor not installed — async DB unavailable")
     except Exception as e:
-        logger.error(f"Async Motor connection failed: {e}")
+        logger.warning(f"⚠️ Async Motor connection failed: {e}. Using in-memory DataStore fallback.")
+        _async_client = None
+        _async_db = None
 
 
 async def close_async_db():
@@ -159,5 +158,5 @@ async def get_async_collection(name: str):
     """Get an async collection by name."""
     db = get_async_db()
     if db is None:
-        raise RuntimeError("Async database not initialised — call init_async_db() first")
+        return None
     return db[name]
