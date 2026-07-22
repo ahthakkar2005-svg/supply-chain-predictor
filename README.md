@@ -1,64 +1,76 @@
-# Supply Chain Disruption Predictor
-
-<div align="center">
-
-![ChainGuard AI](./frontend/public/chain.svg)
-
-### 🔮 AI-Powered Supply Chain Risk Intelligence Platform
+# 🔮 ChainGuard AI — Supply Chain Disruption Predictor
 
 **Predict disruptions before they happen. Protect your supply chain.**
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-</div>
+## Live Demo
+🔗 [supply-chain-predictor-silk.vercel.app](https://supply-chain-predictor-silk.vercel.app)
 
----
+## Screenshots
 
-## 🌟 Features
+| Executive Dashboard | Regional Risk Map |
+|---|---|
+| ![Dashboard](dashboard.png) | ![Analytics](analytics.png) |
 
-- **🤖 AI-Powered Predictions** - LSTM & Prophet models analyze patterns to predict disruptions
-- **📰 Real-Time News Analysis** - NLP sentiment analysis of supply chain news
-- **🗺️ Global Risk Mapping** - Interactive visualization of regional risks
-- **🚨 Smart Alerts** - Proactive notifications before disruptions occur
-- **📊 Executive Dashboard** - Premium, dark-themed analytics dashboard
-- **📈 Trend Analysis** - Historical and forecasted risk metrics
+| Smart Alerts | AI Predictions |
+|---|---|
+| ![Alerts](alerts.png) | ![Predictions](predictions.png) |
 
-## 🏗️ Architecture
+## Overview
+ChainGuard AI is an end-to-end risk intelligence platform for supply chain operations. It combines time-series forecasting, NLP-based news sentiment analysis, and real-time risk scoring to flag disruptions before they impact operations — built for teams in manufacturing, logistics, and procurement.
 
-```
+## Features
+- 🤖 **AI-Powered Predictions** — Prophet time-series forecasting for disruption likelihood
+- 📰 **Real-Time News Analysis** — NLP sentiment pipeline scoring supply chain news
+- 🗺️ **Global Risk Mapping** — interactive regional risk visualization
+- 🚨 **Smart Alerts** — proactive notifications before disruptions occur
+- 📊 **Executive Dashboard** — dark-themed analytics UI, auto-refreshing every 30s
+- 📈 **Trend Analysis** — historical and forecasted risk metrics
+
+## Architecture
+
 supply-chain-predictor/
-├── backend/                    # FastAPI Python Backend
-│   ├── app/
-│   │   ├── api/               # REST API endpoints
-│   │   ├── core/              # Configuration
-│   │   ├── ml/                # Machine learning models
-│   │   ├── nlp/               # NLP pipeline
-│   │   ├── models/            # Data schemas
-│   │   └── services/          # Business logic
-│   ├── main.py                # Application entry
-│   └── requirements.txt
-├── frontend/                   # React Vite Frontend
-│   ├── src/
-│   │   ├── components/        # UI components
-│   │   ├── hooks/             # Custom React hooks
-│   │   ├── services/          # API services
-│   │   └── utils/             # Utilities
-│   └── package.json
+├── backend/ # FastAPI Python Backend
+│ ├── app/
+│ │ ├── api/ # REST API endpoints
+│ │ ├── core/ # Configuration
+│ │ ├── ml/ # Machine learning models
+│ │ ├── nlp/ # NLP pipeline
+│ │ ├── models/ # Data schemas
+│ │ └── services/ # Business logic
+│ ├── main.py # Application entry
+│ └── requirements.txt
+├── frontend/ # React Vite Frontend
+│ ├── src/
+│ │ ├── components/ # UI components
+│ │ ├── hooks/ # Custom React hooks
+│ │ ├── services/ # API services
+│ │ └── utils/ # Utilities
+│ └── package.json
 └── README.md
-```
 
-## 🚀 Quick Start
+
+## Tech Stack
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Vite, Recharts |
+| Styling | Vanilla CSS with CSS Variables |
+| Backend | FastAPI, Python 3.10+ |
+| ML/AI | Prophet, scikit-learn, NLP pipeline |
+| API | RESTful with auto-generated docs |
+| Deployment | Vercel (frontend), Render (backend) |
+
+## Quick Start
 
 ### Prerequisites
-
 - Python 3.10+
 - Node.js 18+
 - npm or yarn
 
 ### Backend Setup
-
 ```bash
 # Navigate to backend
 cd backend
@@ -87,7 +99,6 @@ The API will be available at `http://localhost:8000`
 - ReDoc: `http://localhost:8000/redoc`
 
 ### Frontend Setup
-
 ```bash
 # Navigate to frontend
 cd frontend
@@ -101,10 +112,9 @@ npm run dev
 
 The dashboard will be available at `http://localhost:5173`
 
-## 📡 API Endpoints
-
+## API Endpoints
 | Endpoint | Method | Description |
-|----------|--------|-------------|
+|---|---|---|
 | `/api/dashboard/summary` | GET | Executive dashboard summary |
 | `/api/dashboard/regions` | GET | Regional risk data |
 | `/api/dashboard/alerts` | GET | Active alerts |
@@ -113,54 +123,38 @@ The dashboard will be available at `http://localhost:5173`
 | `/api/predictions/analyze-text` | POST | NLP text analysis |
 | `/api/predictions/risk-assessment` | GET | Comprehensive risk assessment |
 
-## 🎨 UI Features
+## UI Features
+- **Dark Theme** — premium dark color scheme with glassmorphism
+- **Responsive Design** — works on desktop, tablet, and mobile
+- **Real-Time Updates** — auto-refresh every 30 seconds
+- **Interactive Charts** — Recharts-powered visualizations
+- **Animated Map** — SVG world map with risk indicators
 
-- **Dark Theme** - Premium dark color scheme with glassmorphism
-- **Responsive Design** - Works on desktop, tablet, and mobile
-- **Real-Time Updates** - Auto-refresh every 30 seconds
-- **Interactive Charts** - Recharts-powered visualizations
-- **Animated Map** - SVG world map with risk indicators
-
-## 🔑 Configuration
-
+## Configuration
 Create a `.env` file in the backend directory:
+API Keys (optional - uses mock data if not provided)
 
-```env
-# API Keys (optional - uses mock data if not provided)
 NEWS_API_KEY=your_key_here
 TWITTER_API_KEY=your_key_here
 
-# Risk Thresholds
+Risk Thresholds
+
 RISK_THRESHOLD_HIGH=0.7
 RISK_THRESHOLD_MEDIUM=0.4
-```
 
-## 📊 Technology Stack
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React 18, Vite, Recharts |
-| Styling | Vanilla CSS with CSS Variables |
-| Backend | FastAPI, Python 3.10+ |
-| ML/AI | Scikit-learn, NLP Pipeline |
-| API | RESTful with auto-generated docs |
+## Use Cases
+1. **Manufacturing** — predict production disruptions
+2. **Logistics** — anticipate shipping delays
+3. **Procurement** — assess supplier risks
+4. **Finance** — forecast cost impacts
+5. **Operations** — plan contingencies
 
-## 🎯 Use Cases
-
-1. **Manufacturing** - Predict production disruptions
-2. **Logistics** - Anticipate shipping delays
-3. **Procurement** - Assess supplier risks
-4. **Finance** - Forecast cost impacts
-5. **Operations** - Plan contingencies
-
-## 📜 License
-
-MIT License - See LICENSE file for details.
+## License
+MIT License — see LICENSE file for details.
 
 ---
 
-<div align="center">
-
 **Built with ❤️ for Supply Chain Resilience**
 
-</div>
+Reminder from earlier: I dropped LSTM, XGBoost, and Isolation Forest from the Tech Stack section since none of those appeared in the original README — only add them back once you've confirmed they're actually implemented in backend/app/ml/, so the repo and your resume stay consistent with each other.
