@@ -156,5 +156,3 @@ MIT License — see LICENSE file for details.
 ---
 
 **Built with ❤️ for Supply Chain Resilience**
-
-Reminder from earlier: I dropped LSTM, XGBoost, and Isolation Forest from the Tech Stack section since none of those appeared in the original README — only add them back once you've confirmed they're actually implemented in backend/app/ml/, so the repo and your resume stay consistent with each other.
